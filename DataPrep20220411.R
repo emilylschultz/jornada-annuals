@@ -9,7 +9,7 @@ library(lubridate)
 library(lme4)
 
 # *** unless we want to upload data probably change this to your local data repository		 
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path)) # set working directory to current file 
+# setwd(dirname(rstudioapi::getActiveDocumentContext()$path)) # set working directory to current file 
 		 
 #-------------Import Data, Species specific cover data, rainfall, species list---------------------
 data<-read.csv('JRN_011002_npp_quadrat_meas.csv')  
