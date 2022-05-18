@@ -24,15 +24,15 @@ data.tila <- subset(data.repr,spp=="TILA")
 data.tila$AREA_6 <- (data.tila$A1_6*data.tila$A2_6*pi)*(1-(data.tila$PM_6/100))
 
 # Models of size vs reproductive output
-boba.repr.model <- glm(REPR_6 ~ HT_6 + I(HT_6^2), family="poisson", data=data.boba)
+boba.repr.model <- glm(REPR_6 ~ HT_6, family="poisson", data=data.boba)
 
-boin.repr.model <- glm(REPR_6 ~ HT_6 + I(HT_6^2), family="poisson", data=data.boin)
+boin.repr.model <- glm(REPR_6 ~ HT_6, family="poisson", data=data.boin)
 
-pahi.repr.model <- glm(REPR_6 ~ HT_6 + I(HT_6^2), family="poisson", data=data.pahi)
+pahi.repr.model <- glm(REPR_6 ~ HT_6, family="poisson", data=data.pahi)
 
-erab.repr.model <- glm(REPR_6 ~ HT_6 + I(HT_6^2), family="poisson", data=data.erab)
+erab.repr.model <- glm(REPR_6 ~ HT_6, family="poisson", data=data.erab)
 
-tila.repr.model <- glm(REPR_6 ~ AREA_6 + I(AREA_6^2), family="poisson", data=data.tila)
+tila.repr.model <- glm(REPR_6 ~ AREA_6, family="poisson", data=data.tila)
 
 predict.boba <- data.frame(Height=seq(min(data.boba$HT_6,na.rm=T),max(data.boba$HT_6,na.rm=T),length=50),
                            Repr=exp(predict(boba.repr.model,newdata=data.frame(HT_6=seq(min(data.boba$HT_6,na.rm=T),max(data.boba$HT_6,na.rm=T),length=50)))))
